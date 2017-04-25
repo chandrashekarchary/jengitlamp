@@ -1,0 +1,18 @@
+- name: install php apache mysql 
+  yum: name={{item}} state=present
+  with_items:
+    - httpd
+    - mariadb-server
+    - php
+    - php-mysql
+    - php-curl
+    - php-gd
+
+- name: service start
+  service: name={{item}} state=started enabled=yes
+  with_items:
+    - httpd
+    - mariadb
+
+- name: template php
+  template: src=/root/index.php dest=/var/www/html

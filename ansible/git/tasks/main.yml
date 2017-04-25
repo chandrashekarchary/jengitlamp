@@ -1,0 +1,3 @@
+---
+- name: git clone
+  git: repo=https://github.com/demoglot/html.git dest=/var/www/html
